@@ -5,6 +5,7 @@ library(openxlsx)
 library(dplyr)
 library(DESeq2)
 
+# Validation of 121 overlapping genes in external TCGA dataset
 ccounts = read.table('Data/TCGA/data_mrna_seq_v2_rsem.txt',sep='\t', header=TRUE)
 ccounts <- na.omit(ccounts)
 ccounts <- ccounts[apply(ccounts[,-1], 1, function(x) !all(x==0)),]
@@ -93,6 +94,7 @@ write.csv(as.data.frame(tissue.gene.005_TCGA),
 #####################################################################################################
 #####################################################################################################
 
+# Check whether significant genes point into same direction
 df1 <- read.csv("Result_tissue/Coxph_genes_005.csv")
 df2 <- read.csv("Result_TCGA/CoxPH_TCGA_005.csv")
 
