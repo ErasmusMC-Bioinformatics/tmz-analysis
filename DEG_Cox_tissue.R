@@ -9,7 +9,7 @@ library(DESeq2)
 outcomes.t = read_excel("Data/Tissue/Metadata_Tissue.xlsx", 1)
 sampleNames.t = outcomes.t$GS.number
 
-#### read data ####
+##### read data #####
 tissue.count = read.table("Data/Tissue/RNASeq_rawCounts-EMC.txt",sep = "\t", header = TRUE)#, row.names = 1
 meta.t = read_excel("Data/Tissue/GLIOTRAIN list_Labeling.xlsx", 1)
 meta.t = na.omit(meta.t)
