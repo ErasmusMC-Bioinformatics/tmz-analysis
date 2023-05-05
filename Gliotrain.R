@@ -5,6 +5,7 @@ library(openxlsx)
 library(dplyr)
 library(DESeq2)
 
+# Validation of 121 overlapping genes in external Gliotrain dataset
 RNAseq = read.csv("Data/Gliotrain/RNA_Gliotrain_complete_withoutEMC.csv")
 rownames(RNAseq) <- RNAseq$gene
 RNAseq$gene <- NULL
@@ -79,6 +80,7 @@ write.csv(as.data.frame(tissue.gene.005_TCGA),
 #####################################################################################################
 #####################################################################################################
 
+# Check whether significant genes point into same direction
 df1 <- read.csv("Result_tissue/Coxph_genes_005.csv")
 df2 <- read.csv("Result_Gliotrain/CoxPH_gliotrain_005.csv")
 
